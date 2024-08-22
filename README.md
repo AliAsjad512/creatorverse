@@ -35,3 +35,5 @@ The following optional features are implemented:
 The following additional features are implemented:
 
 Video Walk through using LICEcap
+
+![alt text](<walk through.gif>)
