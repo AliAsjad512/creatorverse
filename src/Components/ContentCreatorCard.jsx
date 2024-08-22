@@ -21,40 +21,49 @@ function ContentCreatorCard({ contentCreator, handleCurrentCreator, handleEditCr
     return (
         <>
             {/* Display their name, url, description, and image */}
-            <div className="content-creator-card">
+            <div className="Maincard">
+            <div className="content-creator-card cardheightclass">
                 <div className="content-creator-card-image">
-                    <img src={contentCreator.imageURL} alt={contentCreator.name} />
+                    <img src={contentCreator.imageurl} alt={contentCreator.name} />
                 </div>
                 <div className="content-creator-card-details">
-                    <b>{contentCreator.name}</b> <br />
-                    <Link to={'/' + contentCreator.id} data-tooltip-id="info-tooltip" data-tooltip-content="Display creator's info">
-                        <IoInformationCircle size={30} onClick={handleViewCreatorClick} />
-                        <Tooltip id="info-tooltip" />
-                    </Link> &nbsp; 
-                    <Link to={'/edit/' + contentCreator.id} data-tooltip-id="edit-tooltip" data-tooltip-content="Edit the creator's info">
-                        <AiTwotoneEdit size={30} onClick={handleEditCreatorClick} className="pointer-link" />
-                        <Tooltip id="edit-tooltip" />
-                    </Link>
+                    <b>{contentCreator.name}</b>
                     <p className="description">{contentCreator.description}</p>
                     
-                    {contentCreator.youtube !== null && contentCreator.youtube !== '' ? (
-                        <a href={'https://youtube.com/@' + contentCreator.youtube} target='__blank'>
-                            <AiFillYoutube size={30} />
-                        </a>
-                    ) : ""} &nbsp;
-                    {contentCreator.instagram !== null && contentCreator.instagram !== '' ? (
-                        <a href={'https://www.instagram.com/' + contentCreator.instagram}>
-                            <AiFillInstagram size={30} />
-                        </a>
-                    ): ""} &nbsp;
-                    {contentCreator.twitter !== null && contentCreator.twitter !== "" ? (
-                        <a href={'https://twitter.com/' + contentCreator.twitter}>
-                            <AiOutlineTwitter size={30} />
-                        </a>
-                    ): ""}
+                    
 
                 </div>
+               
             </div>
+            <div className="bottombutton">
+
+<Link to={'/' + contentCreator.id} data-tooltip-id="info-tooltip" data-tooltip-content="Display creator's info">
+        <IoInformationCircle size={30} onClick={handleViewCreatorClick} />
+        <Tooltip id="info-tooltip" />
+    </Link> &nbsp; 
+    <Link to={'/edit/' + contentCreator.id} data-tooltip-id="edit-tooltip" data-tooltip-content="Edit the creator's info">
+        <AiTwotoneEdit size={30} onClick={handleEditCreatorClick} className="pointer-link" />
+        <Tooltip id="edit-tooltip" />
+    </Link>
+    
+{contentCreator.youtube !== null && contentCreator.youtube !== '' ? (
+        <a href={'https://youtube.com/@' + contentCreator.youtube} target='__blank'>
+            <AiFillYoutube size={30} />
+        </a>
+    ) : ""} &nbsp;
+    {contentCreator.instagram !== null && contentCreator.instagram !== '' ? (
+        <a href={'https://www.instagram.com/' + contentCreator.instagram}>
+            <AiFillInstagram size={30} />
+        </a>
+    ): ""} &nbsp;
+    {contentCreator.twitter !== null && contentCreator.twitter !== "" ? (
+        <a href={'https://twitter.com/' + contentCreator.twitter}>
+            <AiOutlineTwitter size={30} />
+        </a>
+    ): ""}
+
+</div>
+</div>    
         </>
     );
 }

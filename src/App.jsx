@@ -3,7 +3,7 @@ import './App.css';
 import { useRoutes, useNavigate, Link } from 'react-router-dom';
 import ShowCreators from './Pages/ShowCreators';
  import ViewCreator from './Pages/ViewCreator';
-//import AddCreator from './Pages/AddCreators';
+
 import EditCreator from './Pages/EditCreator';
 import { supabase } from './client';
 import '@picocss/pico';

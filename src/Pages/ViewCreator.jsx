@@ -16,7 +16,7 @@ function ViewCreator({ contentCreator, handleEditCreator }) {
                 <div className='creator-first'>
                     <div>
                         {/* Display the content creator's image and name */}
-                        <img src={contentCreator.imageURL} alt={contentCreator.name} />
+                        <img src={contentCreator.imageurl} alt={contentCreator.name} />
                         <h2 style={{ margin: 0 }}>{contentCreator.name}</h2>
                     </div>
                     <div className='social-btns'>

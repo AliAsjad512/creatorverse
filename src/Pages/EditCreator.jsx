@@ -8,7 +8,7 @@ function EditCreator({ creatorToEdit }) {
     // State variables to manage form input fields
     const [name, setName] = useState(creatorToEdit.name); 
     const [description, setDescription] = useState(creatorToEdit.description);
-    const [imageURL, setImageURL] = useState(creatorToEdit.imageURL); 
+    const [imageurl, setimageurl] = useState(creatorToEdit.imageurl); 
     const [youtube, setYoutube] = useState(creatorToEdit.youtube);
     const [instagram, setInstagram] = useState(creatorToEdit.instagram);
     const [twitter, setTwitter] = useState(creatorToEdit.twitter);
@@ -16,7 +16,7 @@ function EditCreator({ creatorToEdit }) {
     // Function to handle form submission
     const handleEditSubmit = async (e) => {
         e.preventDefault();
-        const updatedCreator = { name, description, imageURL, youtube, instagram, twitter };
+        const updatedCreator = { name, description, imageurl, youtube, instagram, twitter };
         
         try {
             // Update the content creator's info in the database
@@ -38,20 +38,29 @@ function EditCreator({ creatorToEdit }) {
     }
 
     // Function to handle content creator deletion
-    const handleDelete = async () => {
-        console.log('proceed to delete');
-        const { error } = await supabase    
-            .from('creators')
-            .delete()
-            .eq('id', creatorToEdit.id);
 
-        if (error) {
-            throw error;
-        } else { 
-            alert('Successfully deleted creator!');
-            window.location = '/';
+    const handleDelete = async (e) => {
+        e.preventDefault(); // Prevent form submission after deletion
+        console.log('proceed to delete');
+        try {
+            const { error } = await supabase    
+                .from('creators')
+                .delete()
+                .eq('id', creatorToEdit.id);
+    
+            if (error) {
+                throw error;
+            } else { 
+                alert('Successfully deleted creator!');
+                window.location = '/';
+            }
+        } catch (error) {
+            alert('Error deleting creator');
+            console.error('Error:', error);
         }
     }
+    
+    
 
     return (
         <div className="edit-creator-container">
@@ -65,8 +74,8 @@ function EditCreator({ creatorToEdit }) {
                 <textarea rows="5" cols="50" id="description" name="description" required value={description} onChange={e => setDescription(e.target.value)} />
                 <br />
                 
-                <label htmlFor="imageUrl">Image URL (optional):</label>
-                <input type="text" id="imageUrl" name="imageUrl" value={imageURL} onChange={e => setImageURL(e.target.value)} />
+                <label htmlFor="imageurl">Image URL (optional):</label>
+                <input type="text" id="imageurl" name="imageurl" value={imageurl} onChange={e => setimageurl(e.target.value)} />
                 <br />
                 
                 <label htmlFor="youtubeHandle"><AiFillYoutube /> Youtube: </label>
@@ -83,7 +92,9 @@ function EditCreator({ creatorToEdit }) {
 
                 <div className="buttons-container">
                     <button className="submit-edit-button" type="submit">Save Changes</button> &nbsp;
-                    <button id="delete-button" onClick={handleDelete}>Delete</button>
+                    <button id="delete-button" onClick={(e) => handleDelete(e)}>Delete</button>
+
+                    
                 </div>
             </form>
         </div>
