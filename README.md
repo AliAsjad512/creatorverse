@@ -35,6 +35,6 @@ The following optional features are implemented:
 The following additional features are implemented:
 
 Video Walkthrough using LICEcap
-![Alt Text](./src/assets/gif.gif)
+![alt Text](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3pud3BkbXprbTA5enR6am9zNDM5bW14bGNiaGp3dTZrcWgwNGZsaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fTRCPaMD4FMojybA1i/giphy-downsized-large.gif)
 
 
