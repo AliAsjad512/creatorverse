@@ -34,6 +34,7 @@ The following optional features are implemented:
 [✅] An image of each content creator is shown on their content creator card
 The following additional features are implemented:
 
-Video Walk through using LICEcap
+Video Walkthrough using LICEcap
+![alt text](gif-1.gif)
 
-![alt text](<walk through.gif>)
+
